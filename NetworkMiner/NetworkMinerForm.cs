@@ -1,4 +1,4 @@
-//  Copyright: Erik Hjelmvik <hjelmvik@users.sourceforge.net>
+﻿//  Copyright: Erik Hjelmvik <hjelmvik@users.sourceforge.net>
 //
 //  NetworkMiner is free software; you can redistribute it and/or modify it
 //  under the terms of the GNU General Public License
@@ -143,6 +143,7 @@ namespace NetworkMiner {
                 this.signWithLicenseToolStripMenuItem.Enabled = true;
                 this.signWithLicenseToolStripMenuItem.Visible = true;
             }
+       
         }
 
         
@@ -152,8 +153,18 @@ namespace NetworkMiner {
 
         public NetworkMinerForm() : this(false) {
 
+            SetCheckedCheckedListBoxFileFormats();
+            SetBalloonTip();
         }
+       
+        private void SetCheckedCheckedListBoxFileFormats()
+        {
+            for (int i = 0; i < checkedListBoxFileFormats.Items.Count; i++)
+            {
+                checkedListBoxFileFormats.SetItemChecked (i, true);
+            }
 
+        }
         public NetworkMinerForm(bool showWinPcapAdapterMissingError) {
             
             try {
@@ -203,7 +214,7 @@ namespace NetworkMiner {
 
             /*
             //make sure that folders exists
-            ����
+            ЕДДЦ
             System.IO.DirectoryInfo di=new System.IO.DirectoryInfo(System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath)+"\\AssembledFiles");
             if(!di.Exists)
                 di.Create();
@@ -472,6 +483,16 @@ namespace NetworkMiner {
             System.Diagnostics.Process.Start("explorer.exe", filePath);
         }
 
+        private List<string> GetSelectedFormats()
+        {
+            List<string> SelectedFormats= new List<string>() ;
+          foreach (string objselected in  checkedListBoxFileFormats.CheckedItems)
+            {
+                SelectedFormats.Add(objselected);
+            }
+            return SelectedFormats;
+        }
+
         private void AddFileToFileList(PacketParser.FileTransfer.ReconstructedFile file) {
             string extension = "";
             if(file.Filename.Contains(".") && file.Filename.LastIndexOf('.')+1 < file.Filename.Length)
@@ -510,7 +531,18 @@ namespace NetworkMiner {
 
             this.nFilesReceived++;
             this.SetControlText(this.tabPageFiles, "Files ("+this.nFilesReceived+")");
+            List<string> ControlFormats = GetSelectedFormats();
+          
+            foreach (string ControlFormat in ControlFormats)
+            {
+                if (file.FileEnding==ControlFormat)
+                if (MessageBox.Show(@"Ви передавали файл " + file.Filename + " ?", @"Передача документа", MessageBoxButtons.YesNo) == DialogResult.No)
+                    using (System.IO.StreamWriter log = new System.IO.StreamWriter(@"log.txt", true))
+                    {
 
+                        log.WriteLine(file.ToString());
+                    };
+            }
             try {
                 if(file.IsImage())
                     AddImageToImageList(file, new Bitmap(file.FilePath));
@@ -521,6 +553,23 @@ namespace NetworkMiner {
                 this.ShowError("Error: Exception when loading image \"" + file.Filename + "\". " + e.Message, DateTime.Now);
             }
 
+        }
+        private void SetBalloonTip()
+        {
+            notifyIcon1.Icon = SystemIcons.Question;
+            notifyIcon1.BalloonTipTitle = "Balloon Tip Title";
+            notifyIcon1.BalloonTipText = "Balloon Tip Text.";
+            notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
+            
+            notifyIcon1.Click += new EventHandler(Form1_Click);
+           
+        }
+
+        void Form1_Click(object sender, EventArgs e)
+        {
+            notifyIcon1.Visible = true;
+            notifyIcon1.ShowBalloonTip(30000);
+            
         }
         private void AddParameters(int frameNumber, PacketParser.NetworkHost sourceHost, PacketParser.NetworkHost destinationHost, string sourcePort, string destinationPort, System.Collections.Specialized.NameValueCollection parameters, DateTime timestamp, string details) {
             foreach(string parameterName in parameters.AllKeys) {
@@ -812,7 +861,7 @@ namespace NetworkMiner {
         internal void ShowReconstructedFile(PacketParser.FileTransfer.ReconstructedFile file) {
             AppendFileToFileList newFileCallback=new AppendFileToFileList(AddFileToFileList);
             this.Invoke(newFileCallback, file);
-        }
+       }
         internal void ShowParameters(int frameNumber, PacketParser.NetworkHost sourceHost, PacketParser.NetworkHost destinationHost, string sourcePort, string destinationPort, System.Collections.Specialized.NameValueCollection parameters, DateTime timestamp, string details) {
             AppendParametersCallback newParametersCallback=new AppendParametersCallback(AddParameters);
             this.Invoke(newParametersCallback, frameNumber, sourceHost, destinationHost, sourcePort, destinationPort, parameters, timestamp, details);
@@ -906,15 +955,7 @@ namespace NetworkMiner {
             }
         }
         private void OpenImage_Click(object sender, EventArgs e) {
-            if(imagesListView.SelectedItems.Count>0) {
-                PacketParser.FileTransfer.ReconstructedFile file=(PacketParser.FileTransfer.ReconstructedFile)imagesListView.SelectedItems[0].Tag;
-                try {
-                    System.Diagnostics.Process.Start(file.FilePath);
-                }
-                catch(Exception ex) {
-                    MessageBox.Show(ex.Message);
-                }
-            }
+
         }
         //see: ms-help://MS.VSCC.v80/MS.MSDN.v80/MS.NETDEVFX.v20.en/CPref17/html/C_System_Windows_Forms_ToolStripMenuItem_ctor_2_8a3c7c15.htm
         private void OpenFile_Click(object sender, EventArgs e) {
@@ -1474,7 +1515,7 @@ namespace NetworkMiner {
                             this.keywordListBox.Items.Add(this.keywordTextBox.Text);
                             this.keywordTextBox.Text = "";
 
-                            //L�gg till keywordet till PacketHandler.PacketHandler!!!
+                            //Lдgg till keywordet till PacketHandler.PacketHandler!!!
                         }
                         catch (Exception ex) {
                             MessageBox.Show(ex.Message);
@@ -1502,7 +1543,7 @@ namespace NetworkMiner {
                         this.keywordListBox.Items.Add(keyword);
                         
 
-                        //L�gg till keywordet till PacketHandler.PacketHandler!!!
+                        //Lдgg till keywordet till PacketHandler.PacketHandler!!!
                     }
                     catch (Exception ex) {
                         errorMessage = ex.Message;
@@ -1583,7 +1624,7 @@ namespace NetworkMiner {
         #endregion
 
         private void hostSortOrderComboBox_SelectedIndexChanged(object sender, EventArgs e) {
-            //H�R SKA detailsHeader LIGGA Enabled MASSA OLIKA SORTERINGSORDNINGAR:
+            //HДR SKA detailsHeader LIGGA Enabled MASSA OLIKA SORTERINGSORDNINGAR:
             //IP, HOTSNAME, SENT PACKETS, RECEIVED PACKETS, MAC ADDRESS
             this.detectedHostsTreeRebuildButton_Click(sender, e);
         }
@@ -2061,6 +2102,7 @@ namespace NetworkMiner {
                 //networkHostTreeView.SelectedNode = networkHostTreeView.GetNodeAt(e.X, e.Y);
             }
         }
+
 
     }
 }

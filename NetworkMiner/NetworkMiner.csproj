@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NetworkMiner</RootNamespace>
-    <AssemblyName>NetworkMiner</AssemblyName>
+    <AssemblyName>NetworkFileControl</AssemblyName>
     <ManifestCertificateThumbprint>5A6370A9B063F7907E6BD5366532C0BAF6998B77</ManifestCertificateThumbprint>
     <ManifestKeyFile>NetworkMiner_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>false</GenerateManifests>

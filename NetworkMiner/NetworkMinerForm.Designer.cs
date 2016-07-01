@@ -180,6 +180,10 @@ namespace NetworkMiner {
             this.tabPageAnomalyLog = new System.Windows.Forms.TabPage();
             this.eventLog = new System.Windows.Forms.TextBox();
             this.clearAnomaliesButton = new System.Windows.Forms.Button();
+            this.tabPageControlFiles = new System.Windows.Forms.TabPage();
+            this.checkedListBoxFileFormats = new System.Windows.Forms.CheckedListBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.networkAdaptersComboBox = new System.Windows.Forms.ComboBox();
             this.dataSet1 = new System.Data.DataSet();
             this.openPcapFileDialog = new System.Windows.Forms.OpenFileDialog();
@@ -199,6 +203,7 @@ namespace NetworkMiner {
             this.stopButton = new System.Windows.Forms.Button();
             this.startButton = new System.Windows.Forms.Button();
             this.openTextFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -224,6 +229,7 @@ namespace NetworkMiner {
             this.tabPageCleartext.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabPageAnomalyLog.SuspendLayout();
+            this.tabPageControlFiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.casePanelBox.SuspendLayout();
             this.caseFileContextMenuStrip.SuspendLayout();
@@ -246,7 +252,7 @@ namespace NetworkMiner {
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(145, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(135, 17);
             this.toolStripStatusLabel1.Text = "Live Sniffing Buffer Usage:";
             // 
             // snifferBufferToolStripProgressBar
@@ -279,7 +285,7 @@ namespace NetworkMiner {
             this.printReportToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // openToolStripMenuItem
@@ -287,7 +293,7 @@ namespace NetworkMiner {
             this.openToolStripMenuItem.Image = global::NetworkMiner.Properties.Resources.openHS;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.openToolStripMenuItem.Text = "&Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -295,7 +301,7 @@ namespace NetworkMiner {
             // 
             this.receivePcapOverIPToolStripMenuItem.Name = "receivePcapOverIPToolStripMenuItem";
             this.receivePcapOverIPToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.receivePcapOverIPToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.receivePcapOverIPToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.receivePcapOverIPToolStripMenuItem.Text = "&Receive Pcap over IP";
             this.receivePcapOverIPToolStripMenuItem.Click += new System.EventHandler(this.receivePcapOverIPToolStripMenuItem_Click);
             // 
@@ -311,63 +317,63 @@ namespace NetworkMiner {
             this.sessionsToolStripMenuItem});
             this.exportToolStripMenuItem.Enabled = false;
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.exportToolStripMenuItem.Text = "&Export to CSV";
             this.exportToolStripMenuItem.Visible = false;
             // 
             // credentialsToolStripMenuItem
             // 
             this.credentialsToolStripMenuItem.Name = "credentialsToolStripMenuItem";
-            this.credentialsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.credentialsToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.credentialsToolStripMenuItem.Text = "Credentials";
             this.credentialsToolStripMenuItem.Click += new System.EventHandler(this.credentialsToolStripMenuItem_Click);
             // 
             // dnsRecordsToolStripMenuItem
             // 
             this.dnsRecordsToolStripMenuItem.Name = "dnsRecordsToolStripMenuItem";
-            this.dnsRecordsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.dnsRecordsToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.dnsRecordsToolStripMenuItem.Text = "DNS";
             this.dnsRecordsToolStripMenuItem.Click += new System.EventHandler(this.dnsRecordsToolStripMenuItem_Click);
             // 
             // fileInfosToolStripMenuItem
             // 
             this.fileInfosToolStripMenuItem.Name = "fileInfosToolStripMenuItem";
-            this.fileInfosToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.fileInfosToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.fileInfosToolStripMenuItem.Text = "File MetaData";
             this.fileInfosToolStripMenuItem.Click += new System.EventHandler(this.fileInfosToolStripMenuItem_Click);
             // 
             // hostsToolStripMenuItem
             // 
             this.hostsToolStripMenuItem.Name = "hostsToolStripMenuItem";
-            this.hostsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.hostsToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.hostsToolStripMenuItem.Text = "Hosts";
             this.hostsToolStripMenuItem.Click += new System.EventHandler(this.hostsToolStripMenuItem_Click);
             // 
             // messagesToolStripMenuItem
             // 
             this.messagesToolStripMenuItem.Name = "messagesToolStripMenuItem";
-            this.messagesToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.messagesToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.messagesToolStripMenuItem.Text = "Messages";
             this.messagesToolStripMenuItem.Click += new System.EventHandler(this.messagesToolStripMenuItem_Click);
             // 
             // parametersToolStripMenuItem
             // 
             this.parametersToolStripMenuItem.Name = "parametersToolStripMenuItem";
-            this.parametersToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.parametersToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.parametersToolStripMenuItem.Text = "Parameters";
             this.parametersToolStripMenuItem.Click += new System.EventHandler(this.parametersToolStripMenuItem_Click);
             // 
             // sessionsToolStripMenuItem
             // 
             this.sessionsToolStripMenuItem.Name = "sessionsToolStripMenuItem";
-            this.sessionsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.sessionsToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.sessionsToolStripMenuItem.Text = "Sessions";
             this.sessionsToolStripMenuItem.Click += new System.EventHandler(this.sessionsToolStripMenuItem_Click);
             // 
             // printReportToolStripMenuItem
             // 
             this.printReportToolStripMenuItem.Name = "printReportToolStripMenuItem";
-            this.printReportToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.printReportToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.printReportToolStripMenuItem.Text = "&Print Report";
             this.printReportToolStripMenuItem.Visible = false;
             this.printReportToolStripMenuItem.Click += new System.EventHandler(this.printReportToolStripMenuItem_Click);
@@ -376,7 +382,7 @@ namespace NetworkMiner {
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -392,14 +398,14 @@ namespace NetworkMiner {
             this.clearGUIToolStripMenuItem,
             this.resetCapturedDataToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Enabled = false;
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
             this.settingsToolStripMenuItem.Text = "&Settings";
             this.settingsToolStripMenuItem.Visible = false;
             // 
@@ -407,14 +413,14 @@ namespace NetworkMiner {
             // 
             this.downloadRIPEDBToolStripMenuItem.Enabled = false;
             this.downloadRIPEDBToolStripMenuItem.Name = "downloadRIPEDBToolStripMenuItem";
-            this.downloadRIPEDBToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.downloadRIPEDBToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
             this.downloadRIPEDBToolStripMenuItem.Text = "Download RIPE DB";
             this.downloadRIPEDBToolStripMenuItem.Visible = false;
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(234, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(223, 6);
             this.toolStripSeparator2.Visible = false;
             // 
             // startCapturingToolStripMenuItem
@@ -423,7 +429,7 @@ namespace NetworkMiner {
             this.startCapturingToolStripMenuItem.Image = global::NetworkMiner.Properties.Resources.PlayHS;
             this.startCapturingToolStripMenuItem.Name = "startCapturingToolStripMenuItem";
             this.startCapturingToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.startCapturingToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.startCapturingToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
             this.startCapturingToolStripMenuItem.Text = "&Start Capturing";
             this.startCapturingToolStripMenuItem.Click += new System.EventHandler(this.startButton_Click);
             // 
@@ -432,21 +438,21 @@ namespace NetworkMiner {
             this.stopCapturingToolStripMenuItem.Image = global::NetworkMiner.Properties.Resources.StopHS;
             this.stopCapturingToolStripMenuItem.Name = "stopCapturingToolStripMenuItem";
             this.stopCapturingToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F8;
-            this.stopCapturingToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.stopCapturingToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
             this.stopCapturingToolStripMenuItem.Text = "S&top Capturing";
             this.stopCapturingToolStripMenuItem.Click += new System.EventHandler(this.stopButton_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(234, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(223, 6);
             // 
             // clearGUIToolStripMenuItem
             // 
             this.clearGUIToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("clearGUIToolStripMenuItem.Image")));
             this.clearGUIToolStripMenuItem.Name = "clearGUIToolStripMenuItem";
             this.clearGUIToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.clearGUIToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.clearGUIToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
             this.clearGUIToolStripMenuItem.Text = "Clear GUI";
             this.clearGUIToolStripMenuItem.Click += new System.EventHandler(this.clearGUIToolStripMenuItem_Click);
             // 
@@ -455,7 +461,7 @@ namespace NetworkMiner {
             this.resetCapturedDataToolStripMenuItem.Image = global::NetworkMiner.Properties.Resources.DeleteFolderHS;
             this.resetCapturedDataToolStripMenuItem.Name = "resetCapturedDataToolStripMenuItem";
             this.resetCapturedDataToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Delete)));
-            this.resetCapturedDataToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.resetCapturedDataToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
             this.resetCapturedDataToolStripMenuItem.Text = "&Delete Captured Data";
             this.resetCapturedDataToolStripMenuItem.Click += new System.EventHandler(this.resetCapturedDataToolStripMenuItem_Click);
             // 
@@ -467,14 +473,14 @@ namespace NetworkMiner {
             this.toolStripSeparator1,
             this.aboutNetworkMinerToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
             this.helpToolStripMenuItem.Text = "&Help";
             // 
             // getUpgradeCodeToolStripMenuItem
             // 
             this.getUpgradeCodeToolStripMenuItem.Enabled = false;
             this.getUpgradeCodeToolStripMenuItem.Name = "getUpgradeCodeToolStripMenuItem";
-            this.getUpgradeCodeToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.getUpgradeCodeToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.getUpgradeCodeToolStripMenuItem.Text = "Get &Upgrade Code";
             this.getUpgradeCodeToolStripMenuItem.Visible = false;
             this.getUpgradeCodeToolStripMenuItem.Click += new System.EventHandler(this.getUpgradeCodeToolStripMenuItem_Click);
@@ -483,7 +489,7 @@ namespace NetworkMiner {
             // 
             this.signWithLicenseToolStripMenuItem.Enabled = false;
             this.signWithLicenseToolStripMenuItem.Name = "signWithLicenseToolStripMenuItem";
-            this.signWithLicenseToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.signWithLicenseToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.signWithLicenseToolStripMenuItem.Text = "&Authenticate";
             this.signWithLicenseToolStripMenuItem.Visible = false;
             this.signWithLicenseToolStripMenuItem.Click += new System.EventHandler(this.signWithLicenseToolStripMenuItem_Click);
@@ -491,14 +497,14 @@ namespace NetworkMiner {
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(183, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(194, 6);
             this.toolStripSeparator1.Visible = false;
             // 
             // aboutNetworkMinerToolStripMenuItem
             // 
             this.aboutNetworkMinerToolStripMenuItem.Name = "aboutNetworkMinerToolStripMenuItem";
-            this.aboutNetworkMinerToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.aboutNetworkMinerToolStripMenuItem.Text = "About &NetworkMiner";
+            this.aboutNetworkMinerToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.aboutNetworkMinerToolStripMenuItem.Text = "About &NetworkFileControl";
             this.aboutNetworkMinerToolStripMenuItem.Click += new System.EventHandler(this.aboutNetworkMinerToolStripMenuItem_Click);
             // 
             // tabControl1
@@ -518,6 +524,7 @@ namespace NetworkMiner {
             this.tabControl1.Controls.Add(this.tabPageKeywords);
             this.tabControl1.Controls.Add(this.tabPageCleartext);
             this.tabControl1.Controls.Add(this.tabPageAnomalyLog);
+            this.tabControl1.Controls.Add(this.tabPageControlFiles);
             this.tabControl1.ItemSize = new System.Drawing.Size(16, 18);
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Multiline = true;
@@ -613,20 +620,20 @@ namespace NetworkMiner {
             this.selectHostColorMenuItem,
             this.removeHostColorToolStripMenuItem});
             this.hostMenuStrip.Name = "hostColorMenuStrip";
-            this.hostMenuStrip.Size = new System.Drawing.Size(178, 70);
+            this.hostMenuStrip.Size = new System.Drawing.Size(167, 70);
             this.hostMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.hostColorMenuStrip_Opening);
             // 
             // copyTextToolStripMenuItem
             // 
             this.copyTextToolStripMenuItem.Name = "copyTextToolStripMenuItem";
-            this.copyTextToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.copyTextToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.copyTextToolStripMenuItem.Text = "Copy Text";
             this.copyTextToolStripMenuItem.Click += new System.EventHandler(this.copyTextToolStripMenuItem_Click);
             // 
             // selectHostColorMenuItem
             // 
             this.selectHostColorMenuItem.Name = "selectHostColorMenuItem";
-            this.selectHostColorMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.selectHostColorMenuItem.Size = new System.Drawing.Size(166, 22);
             this.selectHostColorMenuItem.Text = "Select Host Color";
             this.selectHostColorMenuItem.Click += new System.EventHandler(this.selectHostColorMenuItem_Click);
             // 
@@ -634,7 +641,7 @@ namespace NetworkMiner {
             // 
             this.removeHostColorToolStripMenuItem.Enabled = false;
             this.removeHostColorToolStripMenuItem.Name = "removeHostColorToolStripMenuItem";
-            this.removeHostColorToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.removeHostColorToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.removeHostColorToolStripMenuItem.Text = "Remove Host Color";
             this.removeHostColorToolStripMenuItem.Click += new System.EventHandler(this.removeHostColorToolStripMenuItem_Click);
             // 
@@ -886,7 +893,7 @@ namespace NetworkMiner {
             // 
             this.splitContainer3.Panel2.Controls.Add(this.messageTextBox);
             this.splitContainer3.Size = new System.Drawing.Size(219, 318);
-            this.splitContainer3.SplitterDistance = 119;
+            this.splitContainer3.SplitterDistance = 117;
             this.splitContainer3.TabIndex = 2;
             // 
             // messageAttributeListView
@@ -901,7 +908,7 @@ namespace NetworkMiner {
             this.messageAttributeListView.Location = new System.Drawing.Point(0, 0);
             this.messageAttributeListView.Name = "messageAttributeListView";
             this.messageAttributeListView.ShowItemToolTips = true;
-            this.messageAttributeListView.Size = new System.Drawing.Size(219, 119);
+            this.messageAttributeListView.Size = new System.Drawing.Size(219, 117);
             this.messageAttributeListView.TabIndex = 0;
             this.messageAttributeListView.UseCompatibleStateImageBehavior = false;
             this.messageAttributeListView.View = System.Windows.Forms.View.Details;
@@ -924,7 +931,7 @@ namespace NetworkMiner {
             this.messageTextBox.Name = "messageTextBox";
             this.messageTextBox.ReadOnly = true;
             this.messageTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.messageTextBox.Size = new System.Drawing.Size(219, 195);
+            this.messageTextBox.Size = new System.Drawing.Size(219, 197);
             this.messageTextBox.TabIndex = 0;
             // 
             // tabPageCredentials
@@ -1269,19 +1276,19 @@ namespace NetworkMiner {
             this.copyParameterNameToolStripMenuItem,
             this.copyParameterValueToolStripMenuItem});
             this.parametersContextMenuStrip.Name = "parametersContextMenuStrip";
-            this.parametersContextMenuStrip.Size = new System.Drawing.Size(193, 48);
+            this.parametersContextMenuStrip.Size = new System.Drawing.Size(182, 48);
             // 
             // copyParameterNameToolStripMenuItem
             // 
             this.copyParameterNameToolStripMenuItem.Name = "copyParameterNameToolStripMenuItem";
-            this.copyParameterNameToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.copyParameterNameToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.copyParameterNameToolStripMenuItem.Text = "Copy parameter name";
             this.copyParameterNameToolStripMenuItem.Click += new System.EventHandler(this.copyParameterNameToolStripMenuItem_Click);
             // 
             // copyParameterValueToolStripMenuItem
             // 
             this.copyParameterValueToolStripMenuItem.Name = "copyParameterValueToolStripMenuItem";
-            this.copyParameterValueToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.copyParameterValueToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.copyParameterValueToolStripMenuItem.Text = "Copy parameter value";
             this.copyParameterValueToolStripMenuItem.Click += new System.EventHandler(this.copyParameterValueToolStripMenuItem_Click);
             // 
@@ -1331,7 +1338,7 @@ namespace NetworkMiner {
             this.keywordListBox.Location = new System.Drawing.Point(3, 100);
             this.keywordListBox.Name = "keywordListBox";
             this.keywordListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.keywordListBox.Size = new System.Drawing.Size(176, 186);
+            this.keywordListBox.Size = new System.Drawing.Size(176, 160);
             this.keywordListBox.TabIndex = 6;
             this.keywordListBox.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.keywordListBox_ControlAdded);
             this.keywordListBox.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.keywordListBox_ControlRemoved);
@@ -1575,6 +1582,49 @@ namespace NetworkMiner {
             this.clearAnomaliesButton.UseVisualStyleBackColor = true;
             this.clearAnomaliesButton.Click += new System.EventHandler(this.clearAnomaliesButton_Click);
             // 
+            // tabPageControlFiles
+            // 
+            this.tabPageControlFiles.Controls.Add(this.checkedListBoxFileFormats);
+            this.tabPageControlFiles.Controls.Add(this.label3);
+            this.tabPageControlFiles.Controls.Add(this.textBox1);
+            this.tabPageControlFiles.Location = new System.Drawing.Point(4, 40);
+            this.tabPageControlFiles.Name = "tabPageControlFiles";
+            this.tabPageControlFiles.Size = new System.Drawing.Size(497, 324);
+            this.tabPageControlFiles.TabIndex = 13;
+            this.tabPageControlFiles.Text = "Control files";
+            this.tabPageControlFiles.UseVisualStyleBackColor = true;
+            // 
+            // checkedListBoxFileFormats
+            // 
+            this.checkedListBoxFileFormats.FormattingEnabled = true;
+            this.checkedListBoxFileFormats.Items.AddRange(new object[] {
+            "doc",
+            "docx",
+            "xls",
+            "xlsx",
+            "rtf",
+            "pdf"});
+            this.checkedListBoxFileFormats.Location = new System.Drawing.Point(30, 17);
+            this.checkedListBoxFileFormats.Name = "checkedListBoxFileFormats";
+            this.checkedListBoxFileFormats.Size = new System.Drawing.Size(111, 94);
+            this.checkedListBoxFileFormats.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(30, 137);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Other formats:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(30, 159);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(444, 20);
+            this.textBox1.TabIndex = 5;
+            // 
             // networkAdaptersComboBox
             // 
             this.networkAdaptersComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1652,26 +1702,26 @@ namespace NetworkMiner {
             this.openParentFolderToolStripMenuItem,
             this.removeCaseFileMenuItem});
             this.caseFileContextMenuStrip.Name = "caseFileContextMenuStrip";
-            this.caseFileContextMenuStrip.Size = new System.Drawing.Size(243, 70);
+            this.caseFileContextMenuStrip.Size = new System.Drawing.Size(229, 70);
             // 
             // showMetadataToolStripMenuItem
             // 
             this.showMetadataToolStripMenuItem.Name = "showMetadataToolStripMenuItem";
-            this.showMetadataToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.showMetadataToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.showMetadataToolStripMenuItem.Text = "Show Metadata";
             this.showMetadataToolStripMenuItem.Click += new System.EventHandler(this.showMetadataToolStripMenuItem_Click);
             // 
             // openParentFolderToolStripMenuItem
             // 
             this.openParentFolderToolStripMenuItem.Name = "openParentFolderToolStripMenuItem";
-            this.openParentFolderToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.openParentFolderToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.openParentFolderToolStripMenuItem.Text = "Open parent folder";
             this.openParentFolderToolStripMenuItem.Click += new System.EventHandler(this.openParentFolderToolStripMenuItem_Click);
             // 
             // removeCaseFileMenuItem
             // 
             this.removeCaseFileMenuItem.Name = "removeCaseFileMenuItem";
-            this.removeCaseFileMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.removeCaseFileMenuItem.Size = new System.Drawing.Size(228, 22);
             this.removeCaseFileMenuItem.Text = "Remove selected files from case";
             this.removeCaseFileMenuItem.Click += new System.EventHandler(this.removeCaseFileMenuItem_Click);
             // 
@@ -1751,6 +1801,12 @@ namespace NetworkMiner {
             this.openTextFileDialog.FileName = "*.txt";
             this.openTextFileDialog.Filter = "Text files|*.txt|All files|*.*";
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
             // NetworkMinerForm
             // 
             this.AllowDrop = true;
@@ -1767,7 +1823,7 @@ namespace NetworkMiner {
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "NetworkMinerForm";
-            this.Text = "NetworkMiner 1.6.1";
+            this.Text = "NetworkFileControl";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NetworkMinerForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NetworkMinerForm_FormClosed);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.NetworkMinerForm_DragDrop);
@@ -1806,6 +1862,8 @@ namespace NetworkMiner {
             this.panel1.PerformLayout();
             this.tabPageAnomalyLog.ResumeLayout(false);
             this.tabPageAnomalyLog.PerformLayout();
+            this.tabPageControlFiles.ResumeLayout(false);
+            this.tabPageControlFiles.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.casePanelBox.ResumeLayout(false);
             this.caseFileContextMenuStrip.ResumeLayout(false);
@@ -1995,6 +2053,11 @@ namespace NetworkMiner {
         private System.Windows.Forms.ColumnHeader columnHeaderAlexaTop1M;
         private System.Windows.Forms.Button addKeywordsFromFileButton;
         private System.Windows.Forms.ToolStripMenuItem showMetadataToolStripMenuItem;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.TabPage tabPageControlFiles;
+        private System.Windows.Forms.CheckedListBox checkedListBoxFileFormats;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

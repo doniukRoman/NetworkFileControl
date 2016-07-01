@@ -118,12 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="textBoxDescription.Text" xml:space="preserve">
-    <value>NetworkMiner is an open source Network Forensic Analysis Tool (NFAT) with a built-in passive network sniffer/packet capturing tool. It can detect OS's, sessions, hostnames, open ports etc. without putting any traffic on the network. NetworkMiner can also parse PCAP files for off-line analysis.
+    <value>NetworkFileControl based on NetworkMiner, which is an open source Network Forensic Analysis Tool (NFAT) with a built-in passive network sniffer/packet capturing tool. It can detect OS's, sessions, hostnames, open ports etc. without putting any traffic on the network. NetworkMiner can also parse PCAP files for off-line analysis.
 
-Author: Erik Hjelmvik, &lt;erik.hjelmvik [at] gmail.com&gt;
+Autho  NetworkMinerr: Erik Hjelmvik, &lt;erik.hjelmvik [at] gmail.com&gt;
+Website  NetworkMiner: http://www.netresec.com/
 
-Website: http://www.netresec.com/
-
-NetworkMiner is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License.</value>
+NetworkMiner is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License.
+Author NetworkFileContro: Roman Doniuk</value>
   </data>
 </root>

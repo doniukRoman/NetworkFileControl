@@ -55,14 +55,17 @@ namespace PacketParser.FileTransfer {
             }
         }
 
-        private string GetFileEnding() {
+        public string GetFileEnding() {
             if(!filename.Contains("."))
                 return "";
             if(filename.EndsWith("."))
                 return "";
             return this.filename.Substring(filename.LastIndexOf('.')+1).ToLower();
         }
-
+        public string FileEnding
+        {
+            get { return GetFileEnding(); }
+        }
         public bool IsImage() {
             string fileEnding=GetFileEnding();
             if(fileEnding.Length==0)
@@ -88,6 +91,15 @@ namespace PacketParser.FileTransfer {
             if(fileEnding.Length==0)
                 return false;
             if(fileEnding=="mime")
+                return true;
+            else
+                return false;
+        }
+        public bool IsMSOfficeDocument() {
+            string fileEnding = GetFileEnding();
+            if (fileEnding.Length == 0)
+                return false;
+            if (fileEnding == "doc"|| fileEnding == "docx" || fileEnding == "xls" || fileEnding == "xlsx")
                 return true;
             else
                 return false;
